@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
 
-export async function login(formData: FormData) {
+export async function login(prevState: any, formData: FormData) {
   const supabase = await createClient();
 
   // type-casting here for convenience
@@ -18,14 +18,14 @@ export async function login(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data);
 
   if (error) {
-    throw error;
+    return { message: error.message };
   }
 
   revalidatePath("/", "layout");
   redirect("/");
 }
 
-export async function signup(formData: FormData) {
+export async function signup(prevState: any, formData: FormData) {
   const supabase = await createClient();
 
   // type-casting here for convenience
@@ -38,7 +38,7 @@ export async function signup(formData: FormData) {
   const { error } = await supabase.auth.signUp(data);
 
   if (error) {
-    throw error;
+    return { message: error.message };
   }
 
   revalidatePath("/", "layout");
