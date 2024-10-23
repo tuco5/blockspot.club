@@ -5,7 +5,11 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
 
-export async function login(prevState: any, formData: FormData) {
+interface FormState {
+  error: string;
+}
+
+export async function login(prevState: FormState, formData: FormData) {
   const supabase = await createClient();
 
   // type-casting here for convenience
@@ -18,14 +22,14 @@ export async function login(prevState: any, formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data);
 
   if (error) {
-    return { message: error.message };
+    return { error: error.message };
   }
 
   revalidatePath("/", "layout");
   redirect("/");
 }
 
-export async function signup(prevState: any, formData: FormData) {
+export async function signup(prevState: FormState, formData: FormData) {
   const supabase = await createClient();
 
   // type-casting here for convenience
@@ -38,7 +42,7 @@ export async function signup(prevState: any, formData: FormData) {
   const { error } = await supabase.auth.signUp(data);
 
   if (error) {
-    return { message: error.message };
+    return { error: error.message };
   }
 
   revalidatePath("/", "layout");

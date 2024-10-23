@@ -3,7 +3,7 @@ import { useFormState } from "react-dom";
 import { login, signup } from "./actions";
 
 const initialState = {
-  message: "",
+  error: "",
 };
 
 export default function LoginPage() {
@@ -23,7 +23,8 @@ export default function LoginPage() {
           Sign up
         </button>
       </div>
-      <p className="text-red-500">{loginState.message}</p>
+      <p className="text-red-500">{loginState.error}</p>
+      <p className="text-red-500">{signupState.error}</p>
     </form>
   );
 }
