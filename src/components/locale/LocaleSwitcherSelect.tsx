@@ -27,15 +27,15 @@ export default function LocaleSwitcherSelect({
 
   function onChange(value: string) {
     const locale = value as Locale;
-    startTransition(() => {
-      setUserLocale(locale);
+    startTransition(async () => {
+      await setUserLocale(locale);
     });
   }
   console.log({ isPending, defaultValue });
   return (
     <div className="relative">
       <Select defaultValue={defaultValue} onValueChange={onChange}>
-        <SelectTrigger aria-label={label}>
+        <SelectTrigger aria-label={label} withIcon={false}>
           <SelectValue>
             <Languages className="h-5 w-5" />
           </SelectValue>
