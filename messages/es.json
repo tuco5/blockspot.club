@@ -1,5 +1,10 @@
 {
   "HomePage": {
     "hero": "En construcción"
+  },
+  "LocaleSwitcher": {
+    "es": "Español",
+    "en": "Ingles",
+    "label": "Idioma"
   }
 }

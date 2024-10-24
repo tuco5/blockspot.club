@@ -16,16 +16,15 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const locale = await getLocale();
-  console.log({ locale });
 
   // Providing all messages to the client
   // side is the easiest way to get started
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
   console.log({ messages });
 
   return (
     <html
-      lang={locale}
+      lang={locale ?? "es"}
       suppressHydrationWarning
       className={`${GeistSans.variable}`}
     >
