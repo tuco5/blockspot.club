@@ -1,5 +1,5 @@
-import { DarkModeToggle } from "@/components/common/theme/DarkModeToggle";
-import LocaleSwitcher from "@/components/common/locale/LocaleSwitcher";
+import { DarkModeToggle } from "@/components/theme/DarkModeToggle";
+import LocaleSwitcher from "@/components/locale/LocaleSwitcher";
 import { useTranslations } from "next-intl";
 
 export default function HomePage() {
