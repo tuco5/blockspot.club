@@ -4,7 +4,7 @@
  */
 import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin("./src/server/i18n/request.ts");
 
 await import("./src/env.js");
 

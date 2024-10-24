@@ -1,7 +1,7 @@
 "use client";
 import { useTransition } from "react";
-import { Locale } from "@/i18n/config";
-import { setUserLocale } from "@/server/services/locale";
+import { type Locale } from "@/server/i18n/config";
+import { setUserLocale } from "@/server/i18n/service";
 import {
   Select,
   SelectContent,
